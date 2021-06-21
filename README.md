@@ -103,7 +103,7 @@ typeof null
 </p>
 </details>
 
-###### 7. What's the result?
+###### 8. What's the result?
 
 ```javascript
 let a = 1;
@@ -122,7 +122,7 @@ let c = 3 - (a = b + 1);  // please don’t write the code like that. Just good 
 </p>
 </details>
 
-###### 8. What's the result?
+###### 9. What's the result?
 
 ```javascript
 let a = (1 + 2, 3 + 4);
