@@ -151,3 +151,20 @@ let a = (1 + 2, 3 + 4);
   ```
 </p>
 </details>
+    
+    
+###### 10. What's the result?
+
+```javascript
+let y = "5";
+let x = y++; // number or string 5?
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  
+  number 5
+  
+  JavaScript first coerces the string to a numver then assigns the value to the variable x and then increments the value.
+  ```
+</p>
+</details>
