@@ -109,7 +109,8 @@ typeof null
 let a = 1;
 let b = 2;
 
-let c = 3 - (a = b + 1);  // please don’t write the code like that. Just good understand how it works.
+let c = 3 - (a = b + 1);  
+// Good to understand how it works. Please don’t write the code like that. 
 ```
 <details><summary><b>Answer</b></summary>
 <p>
