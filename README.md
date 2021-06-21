@@ -165,6 +165,5 @@ let x = y++; // number or string 5?
   number 5
   
   JavaScript first coerces the string to a numver then assigns the value to the variable x and then increments the value.
-  ```
 </p>
 </details>
