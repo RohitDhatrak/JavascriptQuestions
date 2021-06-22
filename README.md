@@ -200,3 +200,28 @@ Number.isNaN("this is a string not a NaN value");
   isNaN tries to coerces the value into a Number before checking if it's a NaN value. This issue has been fixed in Number.isNaN().
 </p>
 </details>
+
+###### 13. What's the result?
+
+```javascript
+let negativeZero = -0;
+
+negativeZero.toString();
+negativeZero === 0;
+negativeZero < 0;
+negativeZero > 0;
+
+Object.is(negativeZero, -0)
+Object.is(negativeZero, 0)
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  
+  "0", true, false, false
+  
+  When we try to use these operations we get some unexpected behaviour because language developers decided negative zero isn't needed.
+  
+  true, false
+  This was fixed in Object.is() method
+</p>
+</details>
