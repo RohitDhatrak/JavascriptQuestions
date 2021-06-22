@@ -222,6 +222,8 @@ Object.is(negativeZero, 0)
   When we try to use these operations we get some unexpected behaviour because language developers decided negative zero isn't needed.
   
   true, false
-  This was fixed in Object.is() method
+  This was fixed in Object.is() method.
+  
+  Use case of -0: To show direction when something is stationary 
 </p>
 </details>
