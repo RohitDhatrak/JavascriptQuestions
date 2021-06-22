@@ -167,3 +167,36 @@ let x = y++; // number or string 5?
   JavaScript first coerces the string to a numver then assigns the value to the variable x and then increments the value.
 </p>
 </details>
+
+###### 11. What's the result?
+
+```javascript
+let a = NaN;
+let b = NaN;
+
+a === b;
+a == b;
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  
+  false, false
+  
+  According to IEEE standard NaN is not equal to NaN.
+</p>
+</details>
+
+###### 12. What's the result?
+
+```javascript
+isNaN("this is a string not a NaN value");
+Number.isNaN("this is a string not a NaN value");
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  
+  true, false
+  
+  isNaN tries to coerces the value into a Number before checking if it's a NaN value. This issue has been fixed in Number.isNaN().
+</p>
+</details>
