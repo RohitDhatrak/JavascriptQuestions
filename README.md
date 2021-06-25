@@ -182,6 +182,7 @@ a == b;
   
   false, false
   
+  NaN is the only value in JavaScript that is not equal to itself.
   According to IEEE standard NaN is not equal to NaN.
 </p>
 </details>
