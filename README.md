@@ -228,3 +228,22 @@ Object.is(negativeZero, 0)
   Use case of -0: To show direction when something is stationary 
 </p>
 </details>
+
+###### 14. What's the result?
+
+```javascript
+let string = 'orange';
+
+function changeToApple(string) {
+  string = 'apple';
+}
+
+changeToApple(string);
+
+console.log(string);  // ??
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  orange
+</p>
+</details>
