@@ -247,3 +247,24 @@ console.log(string);  // ??
   orange
 </p>
 </details>
+
+###### 15. What's the result?
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  setTimeout(() => {
+    console.log("timerStart");
+    resolve("success");
+    console.log("timerEnd");
+  }, 0);
+  console.log(2);
+});
+promise.then(console.log);
+console.log(3);
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1 2 3 timerStart timerEnd success
+</p>
+</details>
