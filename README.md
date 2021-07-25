@@ -198,7 +198,7 @@ Number.isNaN("this is a string not a NaN value");
   
   true, false
   
-  isNaN tries to coerces the value into a Number before checking if it's a NaN value. This issue has been fixed in Number.isNaN().
+  isNaN tries to coerce the value into a Number before checking if it's a NaN value. This issue has been fixed in Number.isNaN().
 </p>
 </details>
 
