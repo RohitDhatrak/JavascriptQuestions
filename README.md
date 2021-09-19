@@ -315,11 +315,10 @@ if(obj.test){
 <details><summary><b>Answer</b></summary>
 <p>
   It won't log hi because the property exists but the value is undefined. So we can use the `in` operator to check if a property is defined of not.
-  
-  ```javascript
+ 
   if("test" in obj){ // returns true
     console.log("hi");
-  }```
+  }
 </p>
 </details>
 
