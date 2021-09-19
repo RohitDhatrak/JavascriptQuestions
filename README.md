@@ -268,3 +268,339 @@ console.log(3);
   1 2 3 timerStart timerEnd success
 </p>
 </details>
+
+###### 16. What's the result?
+
+```javascript
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5,
+};
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  That’s called computed properties. The name of the property is taken from the variable fruit.
+</p>
+</details>
+
+###### 17. What's the result?
+
+```javascript
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+console.log( obj.for + obj.let + obj.return );
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  It will print 6. There are no limitations on property names. They can be any strings or symbols. Other types are automatically converted to strings. 
+</p>
+</details>
+
+###### 18. What's the result?
+
+```javascript
+let obj = {
+  test: undefined
+};
+
+if(obj.test){
+  console.log("hi);
+}
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  It won't log hi because the property exists but the value is undefined. So we can use the `in` operator to check if a property is defined of not.
+  
+  ```javascript
+  if("test" in obj){ // returns true
+    console.log("hi");
+  }```
+</p>
+</details>
+
+###### 19. What's the result?
+
+```javascript
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for (let code in codes) {
+  console.log(code);
+}
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1, 41, 44, 49
+  integer properties are sorted (UTF-16 code units order), others appear in creation order.
+</p>
+</details>
+
+###### 20. What's the result?
+
+```javascript
+let a = {};
+let b = a;
+
+log( a == b );
+log( a === b );
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  true, true
+  Both refer to the same object.
+</p>
+</details>
+
+###### 21. What's does the User function return?
+
+```javascript
+function User(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let user = new User("Jack");
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  The value of this is returned implicitly.
+</p>
+</details>
+
+###### 22. What's the result?
+
+```javascript
+function User() {
+
+  if(new.target){
+    console.log("Hi");
+  }
+}
+
+User();
+new User(); 
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1. undefined, 2. Hi
+  Inside a function, we can check whether it was called with new or without it, using a special new.target property.
+</p>
+</details>
+
+###### 23. What's the result?
+
+```javascript
+function BigUser() {
+
+  this.name = "John";
+
+  return { name: "Godzilla" };
+}
+
+function SmallUser() {
+
+  this.name = "John";
+
+  return "Rick";
+}
+
+console.log( new BigUser().name );
+console.log( new SmallUser().name );
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  
+  
+  1. Godzilla, 2. Johm`
+  
+  If return is called with an object, then the object is returned instead of this
+  If return is called with a primitive, it’s ignored.
+</p>
+</details>
+
+###### 24. Is the constructor call valid?
+
+```javascript
+function User(){
+  this.name = "Admin"
+}
+let user = new User;
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  We can omit parentheses after new, if it has no arguments. Omitting parentheses here is not considered a “good style”, but the syntax is permitted by specification.
+</p>
+</details>
+
+###### 25. Modify the code of up, down and showStep to make the calls chainable?
+
+```javascript
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep: function() {
+    alert( this.step );
+  }
+};
+
+// ladder.up().up().down().showStep(); // 1
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  We can return `this` in every method
+  ```javascript
+    let ladder = {
+    step: 0,
+    up() {
+      this.step++;
+      return this;
+    },
+    down() {
+      this.step--;
+      return this;
+    },
+    showStep() {
+      alert( this.step );
+      return this;
+    }
+  };```
+
+</p>
+</details>
+
+###### 26. Is it possible to create functions A and B so that new A() == new B()??
+
+```javascript
+function A() { ... }
+function B() { ... }
+
+let a = new A;
+let b = new B;
+
+alert( a == b ); // true
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  Yes, it’s possible.
+
+  If a function returns an object then new returns it instead of this.
+
+  So they can, for instance, return the same externally defined object obj
+  ```javascript
+    let obj = {};
+
+    function A() { return obj; }
+    function B() { return obj; }
+
+    alert( new A() == new B() ); // true
+  ```
+</p>
+</details>
+
+###### 27. What's the result?
+
+```javascript
+let user = {
+  address: null
+};
+
+log( user?.name?.first );
+log( user?.address?.street )
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1. undefined 2. undefined
+  
+  The optional chaining ?. stops the evaluation if the value before ?. is undefined or null and returns undefined
+</p>
+</details>
+
+###### 28. What's the result?
+
+```javascript
+log(user?.address);
+
+let userAdmin = {
+  admin() {
+    alert("I am admin");
+  }
+};
+
+let userGuest = {};
+
+log(userAdmin.admin?.());
+
+log(userGuest.admin?.());
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1. ReferenceError: user is not defined. If there’s no variable user at all, then user?.anything triggers an error
+  
+  2. I am admin 3. nothing happens
+  
+  The optional chaining ?. is not an operator, but a special syntax construct, that also works with functions and square brackets.
+  ?.(), ?.[]
+</p>
+</details>
+
+###### 29. Are the two statements valid?
+
+```javascript
+delete user?.name;
+user?.name = "John";
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1. valid 2. invalid
+  
+  We can use ?. for safe reading and deleting, but not writing
+</p>
+</details>
+
+###### 30. What's is valid in the below code?
+
+```javascript
+ let numbers = {
+    0: 0
+ }
+ 
+ numbers.1 = 1;
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  the first part is valid the number 0 will automatically be converted to string. By specification, object property keys may be either of string type, or of symbol type.
+  
+  the `numbers.1 = 1;` is invalid
+</p>
+</details>
+
+###### 31. What's the result?
+
+```javascript
+ let numbers = {
+    0: 0
+ }
+ 
+log(numbers."0");
+log(numbers[0]);
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1. error 2. returns 0
+</p>
+</details>
