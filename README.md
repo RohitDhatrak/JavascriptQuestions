@@ -603,3 +603,49 @@ log(numbers[0]);
   1. error 2. returns 0
 </p>
 </details>
+
+###### 32. What's the result?
+
+```javascript
+alert( 1 || 0 );
+alert( null || 1 );
+alert( null || 0 || 1 );
+alert( undefined || null || 0 )
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  1, 1, 1, 0
+  
+  || returns the first truthy value (without any conversion) or the last one if no truthy value is found
+</p>
+</details>
+
+###### 33. What's the result?
+
+```javascript
+alert( 1 && 0 );
+alert( 1 && 5 );
+alert( null && 5 );
+alert( 0 && "no matter what" );
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  0, 5, null, 0
+  
+  AND returns the first falsy value(without any conversion) or the last value if none were found
+</p>
+</details>
+
+###### 34. What's the result?
+
+```javascript
+alert( !!"non-empty string" );
+alert( !!null );
+```
+<details><summary><b>Answer</b></summary>
+<p>
+  true, false
+  
+  double NOT !! is sometimes used for converting a value to boolean type. The first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+</p>
+</details>
