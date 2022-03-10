@@ -660,3 +660,15 @@ NaN ** 0
 1
 </p>
 </details>
+
+###### 36. What's the result?
+
+```javascript
+let n = 2;
+n *= 3 + 5
+```
+<details><summary><b>Answer</b></summary>
+<p>
+16
+</p>
+</details>
