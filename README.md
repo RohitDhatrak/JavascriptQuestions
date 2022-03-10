@@ -649,3 +649,14 @@ alert( !!null );
   double NOT !! is sometimes used for converting a value to boolean type. The first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
 </p>
 </details>
+
+###### 34. What's the result?
+
+```javascript
+NaN ** 0
+```
+<details><summary><b>Answer</b></summary>
+<p>
+1
+</p>
+</details>
