@@ -650,7 +650,7 @@ alert( !!null );
 </p>
 </details>
 
-###### 34. What's the result?
+###### 35. What's the result?
 
 ```javascript
 NaN ** 0
